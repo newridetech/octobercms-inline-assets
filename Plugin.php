@@ -27,12 +27,23 @@ class Plugin extends PluginBase
         return Str::startsWith($path, '@');
     }
 
+    public static function isExternalPath(string $path): bool
+    {
+        return Str::startsWith($path, '~')
+            || Str::startsWith($path, '$');
+    }
+
+    public static function isSpecial(string $path): bool
+    {
+        return static::isAlias($path) || static::isExternalPath($path);
+    }
+
     public static function normalizeAssetPaths(array $assets): array
     {
         $themePath = Theme::getActiveTheme()->getPath();
 
         return array_map(function (string $path) use ($themePath) {
-            if (static::isAlias($path)) {
+            if (static::isSpecial($path)) {
                 return $path;
             }
 
