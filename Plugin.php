@@ -2,6 +2,7 @@
 
 use Backend;
 use Cms\Classes\Theme;
+use Illuminate\Support\Str;
 use System\Classes\CombineAssets;
 use System\Classes\PluginBase;
 
@@ -21,11 +22,20 @@ class Plugin extends PluginBase
         return $cacheId;
     }
 
+    public static function isAlias(string $path): bool
+    {
+        return Str::startsWith($path, '@');
+    }
+
     public static function normalizeAssetPaths(array $assets): array
     {
         $themePath = Theme::getActiveTheme()->getPath();
 
         return array_map(function (string $path) use ($themePath) {
+            if (static::isAlias($path)) {
+                return $path;
+            }
+
             return $themePath.'/'.$path;
         }, $assets);
     }

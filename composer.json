@@ -1,0 +1,11 @@
+{
+    "name": "newride/octobercms-inline-assets",
+    "license": "MIT",
+    "require": {
+        "illuminate/support": "5.*"
+    },
+    "require-dev": {
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

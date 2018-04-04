@@ -1,1 +1,2 @@
 1.0.1: First version of InlineAssets
+1.0.2: Fix error that prevented loading @framework.extras and other aliases
