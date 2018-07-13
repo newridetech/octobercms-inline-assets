@@ -17,7 +17,8 @@ class Plugin extends PluginBase
         $name = explode('/', $name);
         $name = array_pop($name);
 
-        [$cacheId,] = explode('-', $name);
+        $chunks = explode('-', $name);
+        $cacheId = $chunks[0];
 
         return $cacheId;
     }
