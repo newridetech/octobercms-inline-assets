@@ -1,3 +1,4 @@
 1.0.1: First version of InlineAssets
 1.0.2: Fix error that prevented loading @framework.extras and other aliases
 1.0.3: Handle external paths starting with '$' or '~'
+1.0.4: Do not use PHP 7.1 syntax, provide better backwards compatibility
