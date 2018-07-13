@@ -63,7 +63,8 @@ class Plugin extends PluginBase
             'name'        => 'InlineAssets',
             'description' => 'Optimize assets delivery by inlining files.',
             'author'      => 'Newride',
-            'icon'        => 'icon-leaf'
+            'icon'        => 'icon-leaf',
+            'homepage'    => 'https://github.com/newridetech/octobercms-inline-assets'
         ];
     }
 
